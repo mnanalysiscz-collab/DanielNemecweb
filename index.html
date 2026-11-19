@@ -2,31 +2,150 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Daniel Němec — osobní finanční poradenství.">
-  <title>Daniel Němec — finanční poradce</title>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Němec, osobní finanční poradenství v Sokolově. Probereme bydlení, pojištění, rezervy i dlouhodobé finanční cíle.">
+  <meta name="theme-color" content="#f8f6f1">
+  <title>Daniel Němec | Osobní finanční poradenství</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <a class="brand" href="#top" aria-label="Daniel Němec — domů">
-      <img src="assets/logo-daniel-nemec-web.png" alt="Daniel Němec">
-      <small>OSOBNÍ FINANČNÍ PORADCE</small>
-    </a>
-    <nav aria-label="Hlavní navigace">
-      <a href="#">Služby</a><a href="#">O mně</a><a href="#">Reference</a><a href="#">Články</a><a href="#">Kontakt</a>
-    </nav>
-  </header>
-  <main id="top" class="hero">
-    <img src="assets/hero-wide.jpg" alt="Daniel Němec při práci v kanceláři">
-    <div class="hero-shade"></div>
-    <div class="copy">
-      <p class="eyebrow"><span>01</span> OSOBNÍ FINANČNÍ PORADENSTVÍ</p>
-      <h1>Rozhodnutí,<br>která dávají smysl<br><em>dnes i zítra.</em></h1>
-      <p class="lead">Pomohu vám spojit bydlení, ochranu a investice do jednoho plánu.</p>
-      <a class="button" href="#">Poznat můj přístup <span>→</span></a>
+  <a class="skip-link" href="#top">Přejít k obsahu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Daniel Němec – úvod">
+        <img src="assets/logo-daniel-nemec-web.png" alt="Daniel Němec" width="700" height="233">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="main-nav" id="site-nav" aria-label="Hlavní navigace">
+        <a href="index.html#o-mne">O mně</a>
+        <a href="index.html#sluzby">S čím pomohu</a>
+        <a href="kalkulacky.html">Kalkulačky</a>
+        <a class="nav-cta" href="index.html#kontakt">Kontakt</a>
+      </nav>
     </div>
+  </header>
+  <main id="top" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="assets/hero-wide.jpg" alt="Daniel Němec při práci v kanceláři" width="1875" height="839" fetchpriority="high">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="section-label">Osobní finanční poradenství</p>
+          <h1 id="hero-title">Rozhodnutí, která dávají smysl <em>dnes i zítra.</em></h1>
+          <p class="hero-lead">Pomůžu vám udělat si jasno v bydlení, pojištění a investicích. Společně z nich poskládáme plán, kterému budete rozumět.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#kontakt">Domluvit konzultaci</a>
+            <a class="button button-outline" href="kalkulacky.html">Vyzkoušet kalkulačky</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section about" id="o-mne" aria-labelledby="about-title">
+      <figure class="portrait">
+        <img src="assets/daniel-portret.webp" alt="Daniel Němec při telefonátu" width="950" height="1425" loading="lazy" decoding="async">
+      </figure>
+      <div class="about-copy">
+        <p class="section-label">O mně</p>
+        <h2 id="about-title">Jsem Daniel Němec.</h2>
+        <p>Působím v Sokolově jako obchodní zástupce Kooperativy pro Agenturu Čechy Západ. S klienty probírám, jak chránit příjem, rodinu a majetek i jak se připravit na větší výdaje v budoucnu.</p>
+        <p>Nejdřív si ujasníme, co už máte vyřešené a kde potřebujete pomoct. Pak spolu projdeme možnosti, jejich cenu a podmínky. Na rozhodnutí budete mít čas.</p>
+        <a class="text-link" href="#kontakt">Napište mi, co právě řešíte</a>
+      </div>
+    </section>
+
+    <section class="section services" id="sluzby" aria-labelledby="services-title">
+      <div class="container">
+        <p class="section-label">S čím vám pomůžu</p>
+        <h2 id="services-title">Od bydlení po dlouhodobý plán</h2>
+        <div class="service-grid">
+          <article><h3>Bydlení a hypotéka</h3><p>Probereme kupní cenu, vlastní prostředky a splátku, kterou zvládne váš rozpočet.</p><a href="kalkulacky.html#mortgage">Spočítat splátku</a></article>
+          <article><h3>Pojištění a ochrana příjmu</h3><p>Podíváme se, co by pro domácnost znamenal výpadek příjmu a jak máte krytý majetek.</p><a href="kalkulacky.html#insurance">Odhadnout potřebu krytí</a></article>
+          <article><h3>Rezervy a investice</h3><p>Určíme, kolik peněz chcete mít po ruce a co můžete odkládat na vzdálenější cíle.</p><a href="kalkulacky.html#investment">Spočítat vývoj investice</a></article>
+          <article><h3>Příprava na penzi</h3><p>Porovnáme, z čeho budete v penzi žít a kolik si na ni potřebujete průběžně odkládat.</p><a href="kalkulacky.html#pension">Spočítat plán na penzi</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tools" id="kalkulacky" aria-labelledby="tools-title">
+      <div class="container tools-inner">
+        <div>
+          <p class="section-label">Finanční kalkulačky</p>
+          <h2 id="tools-title">Jak to vychází <em>v číslech?</em></h2>
+          <p>Zadejte vlastní hodnoty, porovnejte scénáře a zjistěte, které předpoklady mají na výsledek největší vliv.</p>
+        </div>
+        <nav class="tool-links" aria-label="Vyberte kalkulačku">
+          <a href="kalkulacky.html#mortgage">Hypotéka</a>
+          <a href="kalkulacky.html#investment">Investice</a>
+          <a href="kalkulacky.html#insurance">Životní pojištění</a>
+          <a href="kalkulacky.html#pension">Penzijní plán</a>
+          <a href="kalkulacky.html#rentbuy">Nájem vs. hypotéka</a>
+          <a href="kalkulacky.html#freedom">Finanční svoboda</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="container section contact" id="kontakt" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <p class="section-label">Kontakt</p>
+        <h2 id="contact-title">Co právě řešíte?</h2>
+        <p>Vyberte téma a nechte mi na sebe kontakt. Ozvu se vám a domluvíme se, co probereme jako první.</p>
+        <address>
+          <strong>Daniel Němec</strong>
+          <span>Obchodní zástupce · Agentura Čechy Západ</span>
+          <span>Kooperativa pojišťovna, a.s., Vienna Insurance Group</span>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%A1dra%C5%BEn%C3%AD+562%2C+Sokolov">Nádražní 562, 356 01 Sokolov</a>
+          <a href="tel:+420737560445">+420 737 560 445</a>
+          <a href="mailto:daniel.nemec@kooperativa.cz">daniel.nemec@kooperativa.cz</a>
+        </address>
+        <img class="office-photo" src="assets/daniel-kancelar.webp" alt="Daniel Němec v kanceláři v Sokolově" width="1600" height="1068" loading="lazy" decoding="async">
+      </div>
+      <div class="contact-journey">
+        <div class="contact-step" id="futureStep">
+          <h3>Vyberte téma konzultace</h3>
+          <div class="future-picker" role="group" aria-label="Téma konzultace">
+            <button class="future-option" type="button" data-future="Vlastní bydlení" data-message="Hypotéka a financování bydlení">Řeším bydlení</button>
+            <button class="future-option" type="button" data-future="Finanční nezávislost" data-message="Investice a budování majetku">Chci investovat</button>
+            <button class="future-option" type="button" data-future="Jistota pro rodinu" data-message="Ochrana příjmu a rodiny">Chci chránit rodinu</button>
+            <button class="future-option" type="button" data-future="Dlouhodobý finanční plán" data-message="Komplexní finanční plán">Potřebuji finanční plán</button>
+            <button class="future-option" type="button" data-future="Chci se poradit" data-message="Obecný dotaz – chci se poradit">Chci se poradit</button>
+          </div>
+          <noscript><p>Formulář vyžaduje JavaScript. Můžete mi napsat přímo na <a href="mailto:daniel.nemec@kooperativa.cz">daniel.nemec@kooperativa.cz</a>.</p></noscript>
+        </div>
+
+        <div class="contact-step" id="formStep" hidden>
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/daniel.nemec@kooperativa.cz" method="POST" novalidate>
+            <input type="hidden" name="_subject" id="contactSubject" value="Nová poptávka z webu Daniela Němce">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden>
+            <input type="hidden" name="tema" id="futureInput">
+            <div class="contact-form-head">
+              <div><h3>Nechte mi na sebe kontakt</h3><p id="selectedFuture"></p></div>
+              <button class="text-link" id="changeFuture" type="button">Změnit téma</button>
+            </div>
+            <div class="form-row">
+              <label>Jméno a příjmení<input type="text" name="jmeno" autocomplete="name" required></label>
+              <label>Telefon<input type="tel" name="telefon" autocomplete="tel" required></label>
+            </div>
+            <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+            <label>Co aktuálně řešíte? (volitelné)<textarea name="zprava" rows="4" placeholder="Stačí pár vět."></textarea></label>
+            <label class="consent"><input type="checkbox" name="souhlas" value="ano" required><span>Souhlasím se zpracováním údajů za účelem zpětného kontaktování.</span></label>
+            <button class="button button-primary" type="submit">Odeslat zprávu</button>
+            <p class="contact-note">Odeslání zajišťuje <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Před odesláním můžete být vyzváni k ověření proti spamu.</p>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>Daniel Němec</strong><p>Obchodní zástupce · Kooperativa</p></div>
+      <div class="footer-contact"><a href="tel:+420737560445">+420 737 560 445</a><a href="mailto:daniel.nemec@kooperativa.cz">daniel.nemec@kooperativa.cz</a></div>
+      <p class="footer-legal">© <span id="year">2026</span> Daniel Němec. Výsledky kalkulaček jsou orientační.</p>
+    </div>
+  </footer>
+  <script src="contact.js" defer></script>
 </body>
 </html>
-
