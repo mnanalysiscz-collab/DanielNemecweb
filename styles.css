@@ -38,11 +38,13 @@ em { color: var(--accent); }
 .menu-toggle { display: none; }
 
 .hero {
-  --accent: #753921;
+  --accent: #63301d;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #c3baaa url("assets/hero-sterka.webp") left center / cover no-repeat;
+  background:
+    linear-gradient(#2b262121, #2b262121),
+    #c3baaa url("assets/hero-sterka.webp") left center / cover no-repeat;
 }
 .hero-photo {
   position: absolute;
@@ -58,7 +60,7 @@ em { color: var(--accent); }
 .hero-copy { max-width: min(55%, 610px); }
 .hero h1 { font-size: clamp(3.25rem, 5.9vw, 6.2rem); line-height: .99; letter-spacing: -.06em; }
 .hero h1 em { display: inline-block; }
-.hero-lead { max-width: 410px; margin: 25px 0 28px; color: #334659; font-size: clamp(1rem, 1.4vw, 1.14rem); }
+.hero-lead { max-width: 410px; margin: 25px 0 28px; color: #283947; font-size: clamp(1rem, 1.4vw, 1.14rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero .button-outline { background: #ded6c9df; }
 .hero .button-outline:hover { background: #e9e0d2; }
