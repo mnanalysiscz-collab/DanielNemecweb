@@ -17,11 +17,4 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-const homeHeader = document.querySelector('.home-page .site-header');
-if (homeHeader) {
-  const updateHeader = () => homeHeader.classList.toggle('is-scrolled', window.scrollY > 24);
-  updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
-}
-
 document.getElementById('year').textContent = new Date().getFullYear();
