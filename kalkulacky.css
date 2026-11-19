@@ -168,7 +168,9 @@ input[type=range]::-moz-range-thumb{
   --muted: #c4d1dc;
   --line: #ffffff40;
   --slider-accent: #df9f85;
-  background: #142b40;
+  background:
+    linear-gradient(#142b40df, #142b40df),
+    var(--plaster-base) var(--plaster-image) center top / cover no-repeat;
   color: #fff;
   min-height: 75vh;
   padding: clamp(36px, 6vw, 76px) 0;
