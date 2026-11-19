@@ -3,6 +3,7 @@
   --muted: #4c5c67;
   --paper: #f8f6f1;
   --plaster-image: url("assets/hero-sterka.webp");
+  --hero-plaster-tone: linear-gradient(#2b26212e, #2b26212e);
   --plaster-base: #c3baaa;
   --nav-surface: #c9beaf;
   --white: #fff;
@@ -66,7 +67,9 @@ em { color: var(--accent); }
 .home-page .header-inner { height: calc(var(--home-header-height) - 1px); }
 .home-page .site-header.is-scrolled,
 .home-page .site-header:has(.main-nav.open) {
-  background: var(--nav-surface) var(--plaster-image) center 42% / cover no-repeat;
+  background:
+    var(--hero-plaster-tone),
+    var(--plaster-base) var(--plaster-image) center 42% / cover no-repeat;
   border-color: #a2998c;
 }
 
@@ -76,7 +79,7 @@ em { color: var(--accent); }
   isolation: isolate;
   overflow: hidden;
   background:
-    linear-gradient(#2b26212e, #2b26212e),
+    var(--hero-plaster-tone),
     var(--plaster-base) var(--plaster-image) left center / cover no-repeat;
 }
 .hero-photo {
@@ -193,7 +196,12 @@ em { color: var(--accent); }
   .main-nav { display: none; position: absolute; inset: 100% 0 auto; padding: 14px 18px; background: var(--nav-surface); border-bottom: 1px solid #a2998c; }
   .main-nav.open { display: grid; gap: 0; }
   .home-page { --home-header-height: 65px; }
-  .home-page .site-header .main-nav { background: var(--nav-surface); border-color: #a2998c; }
+  .home-page .site-header .main-nav {
+    background:
+      var(--hero-plaster-tone),
+      var(--plaster-base) var(--plaster-image) center 55% / cover no-repeat;
+    border-color: #a2998c;
+  }
   .home-page .site-header .menu-toggle { border-color: #75685a; }
   .main-nav a, .main-nav .nav-cta { display: block; padding: 10px 4px; border: 0; }
   .hero-photo {
