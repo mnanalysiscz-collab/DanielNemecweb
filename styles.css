@@ -183,9 +183,15 @@ em { color: var(--accent); }
     var(--plaster-base) var(--plaster-image) center / cover no-repeat;
 }
 .plaster-section--light { --plaster-tone: var(--plaster-light-tone); }
-.about { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1fr); align-items: center; gap: clamp(30px, 8vw, 122px); }
+.about {
+  width: min(1380px, var(--home-content-width));
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(30px, 5vw, 80px);
+}
 .portrait { margin: 0; }
-.portrait img { width: 100%; aspect-ratio: 1.07; object-fit: cover; object-position: 75% 38%; border-radius: 3px; }
+.portrait img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center 26%; border-radius: 3px; }
 .about-copy p:not(.section-label), .contact-copy > p:not(.section-label) { max-width: 52ch; color: var(--muted); }
 .about-copy a { margin-top: 12px; }
 .services {
@@ -283,7 +289,6 @@ em { color: var(--accent); }
   .section-label { margin-bottom: 12px; }
   .about, .tools-inner, .contact { grid-template-columns: minmax(0, 1fr); }
   .about-copy { grid-row: 1; }
-  .portrait img { max-height: 440px; }
 }
 @media (max-width: 440px) {
   .service-grid, .form-row { grid-template-columns: minmax(0, 1fr); }
