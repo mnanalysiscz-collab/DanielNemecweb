@@ -6,6 +6,8 @@
   --hero-plaster-tone: linear-gradient(#2b26212e, #2b26212e);
   --plaster-base: #c3baaa;
   --nav-surface: #c9beaf;
+  --brand-height: clamp(88px, 7.7vw, 112px);
+  --header-height: calc(var(--brand-height) + 12px);
   --white: #fff;
   --line: #dbd9d4;
   --accent: #8c462f;
@@ -14,7 +16,7 @@
   --sans: "Segoe UI", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 12px); }
 body { margin: 0; background: var(--plaster-base); color: var(--ink); font: 1rem/1.65 var(--sans); }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-underline-offset: .23em; }
@@ -38,12 +40,12 @@ em { color: var(--accent); }
   background: var(--nav-surface) var(--plaster-image) center 42% / cover no-repeat;
   border-bottom: 1px solid #a2998c;
 }
-.header-inner { width: min(1290px, 100% - 104px); min-height: 81px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.header-inner { width: min(1290px, 100% - 104px); min-height: var(--header-height); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  height: 68px;
+  height: var(--brand-height);
 }
 .brand img {
   width: auto;
@@ -56,7 +58,6 @@ em { color: var(--accent); }
 .menu-toggle { display: none; }
 
 .home-page {
-  --home-header-height: 82px;
   --home-content-width: min(1600px, 100% - clamp(56px, 8vw, 150px));
 }
 .home-page .site-header {
@@ -67,7 +68,6 @@ em { color: var(--accent); }
 }
 .home-page .header-inner {
   width: var(--home-content-width);
-  height: var(--home-header-height);
 }
 
 .hero {
@@ -99,7 +99,7 @@ em { color: var(--accent); }
   width: var(--home-content-width);
   min-height: 100vh;
   min-height: 100svh;
-  padding-top: calc(48px + var(--home-header-height));
+  padding-top: calc(48px + var(--header-height));
 }
 .hero-copy { max-width: min(55%, 610px); }
 .hero h1 { font-size: clamp(3rem, 5.1vw, 5.3rem); line-height: .99; letter-spacing: -.06em; }
@@ -186,17 +186,12 @@ em { color: var(--accent); }
   .home-page { --home-content-width: min(1170px, 100% - 56px); }
 }
 @media (max-width: 720px) {
-  html { scroll-padding-top: 80px; }
+  :root { --brand-height: clamp(72px, 20vw, 83px); }
   .container, .header-inner { width: calc(100% - 36px); }
-  .header-inner { min-height: 64px; }
-  .brand { height: 54px; }
   .menu-toggle { display: block; min-height: 42px; padding-inline: 12px; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); background: transparent; font-weight: 650; }
   .main-nav { display: none; position: absolute; inset: 100% 0 auto; padding: 14px 18px; background: var(--nav-surface); border-bottom: 1px solid #a2998c; }
   .main-nav.open { display: grid; gap: 0; }
-  .home-page {
-    --home-header-height: 65px;
-    --home-content-width: calc(100% - 36px);
-  }
+  .home-page { --home-content-width: calc(100% - 36px); }
   .home-page .header-inner { gap: 14px; }
   .home-page .site-header .main-nav {
     background:
@@ -220,7 +215,7 @@ em { color: var(--accent); }
   }
   .home-page .hero-photo {
     flex-shrink: 0;
-    height: calc(clamp(220px, 58vw, 360px) + var(--home-header-height));
+    height: calc(clamp(220px, 58vw, 360px) + var(--header-height));
   }
   .hero-inner { min-height: 0; padding-block: 30px 41px; }
   .home-page .hero-inner { flex: 1; min-height: 0; padding-top: 30px; }
