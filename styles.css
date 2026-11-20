@@ -165,6 +165,7 @@ em { color: var(--accent); }
   .home-page .hero-copy { margin-block-start: 0; }
   .home-page .hero-copy > :is(.section-label, h1, .hero-lead) { inset-block-start: 0; }
   .home-page .hero h1 { font-size: var(--hero-title-size); }
+  .home-page .hero-actions { padding-block-start: min(100px, calc(15svh - 40px), calc((100vw - 720px) / 3)); }
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero .button-outline { background: #ded6c9df; }
