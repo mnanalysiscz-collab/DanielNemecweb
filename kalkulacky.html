@@ -6,8 +6,8 @@
   <meta name="description" content="Šest orientačních finančních kalkulaček Daniela Němce pro hypotéku, investice, životní pojištění, plán na penzi, nájem a finanční svobodu.">
   <meta name="theme-color" content="#f8f6f1">
   <title>Finanční kalkulačky | Daniel Němec</title>
-  <link rel="stylesheet" href="styles.css?v=sterka-stridani-1">
-  <link rel="stylesheet" href="kalkulacky.css?v=sterka-stridani-1">
+  <link rel="stylesheet" href="styles.css?v=sluzby-na-sterce-1">
+  <link rel="stylesheet" href="kalkulacky.css?v=kalkulacky-na-sterce-1">
   <script src="script.js?v=podpis-smycka-1" defer></script>
 </head>
 <body class="calculator-page">
@@ -31,8 +31,8 @@
       <div class="calculator-overview">
         <a class="calculator-back" href="index.html">Zpět na hlavní stránku</a>
         <div class="section-heading">
-          <div><span class="section-label">Finanční kalkulačky</span><h1 id="calculators-title">Šest pohledů na vaši budoucnost.</h1></div>
-          <p>Orientační výpočty s nastavitelnými předpoklady, scénáři a vysvětlením výsledku. Vše se přepočítává okamžitě přímo ve vašem prohlížeči.</p>
+          <h1 id="calculators-title">Finanční <em>kalkulačky</em></h1>
+          <p>Vyberte téma a upravte předpoklady podle své situace. Orientační výsledek se přepočítá hned.</p>
         </div>
 
         <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
@@ -174,22 +174,24 @@
       const x=(i,p)=>pad.l+((p?.t??i)/endTime)*(w-pad.l-pad.r);
       const y=v=>pad.t+((max-v)/range)*(h-pad.t-pad.b);
 
+      const chartStyle=getComputedStyle(canvas);
+      const chartColor=name=>chartStyle.getPropertyValue('--chart-'+name).trim();
       ctx.font='11px Segoe UI, sans-serif';
       ctx.lineWidth=1;
       for(let i=0;i<4;i++){
         const value=max-(range*i/3),yy=y(value);
-        ctx.strokeStyle='rgba(255,255,255,.075)';
+        ctx.strokeStyle=chartColor('grid');
         ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();
-        ctx.fillStyle='rgba(255,255,255,.63)';ctx.textAlign='right';ctx.textBaseline='middle';
+        ctx.fillStyle=chartColor('text');ctx.textAlign='right';ctx.textBaseline='middle';
         ctx.fillText(formatAxis(value),pad.l-9,yy);
       }
 
-      const colors=['#f3b399','rgba(247,243,235,.66)','rgba(234,154,126,.42)'];
+      const colors=['primary','secondary','tertiary'].map(chartColor);
       cleaned.forEach((s,si)=>{
         const points=s.data;
         if(si===0&&points.length>1){
           const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);
-          grad.addColorStop(0,'rgba(243,179,153,.20)');grad.addColorStop(1,'rgba(243,179,153,0)');
+          grad.addColorStop(0,chartColor('fill'));grad.addColorStop(1,'transparent');
           ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(i,p),y(p.v)):ctx.moveTo(x(i,p),y(p.v)));
           ctx.lineTo(x(points.length-1,points.at(-1)),h-pad.b);ctx.lineTo(x(0,points[0]),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
         }
@@ -199,13 +201,13 @@
       });
 
       if(Number.isFinite(Number(target))){
-        const ty=y(Number(target));ctx.save();ctx.setLineDash([5,5]);ctx.strokeStyle='rgba(243,179,153,.62)';
+        const ty=y(Number(target));ctx.save();ctx.setLineDash([5,5]);ctx.strokeStyle=colors[0];
         ctx.beginPath();ctx.moveTo(pad.l,ty);ctx.lineTo(w-pad.r,ty);ctx.stroke();ctx.restore();
       }
 
       const labels=cleaned[0].data;
       const indexes=[0,Math.floor((labels.length-1)/2),labels.length-1].filter((v,i,a)=>a.indexOf(v)===i);
-      ctx.fillStyle='rgba(255,255,255,.63)';ctx.font='11px Segoe UI, sans-serif';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+      ctx.fillStyle=chartColor('text');ctx.font='11px Segoe UI, sans-serif';ctx.textAlign='center';ctx.textBaseline='alphabetic';
       indexes.forEach((i,index)=>{ctx.textAlign=index===0?'left':index===indexes.length-1?'right':'center';ctx.fillText(labels[i]?.label||'',x(i,labels[i]),h-9)});
     }
 
@@ -275,7 +277,7 @@
     views.forEach(view=>{
       const actions=document.createElement('div');actions.className='calc-actions';
       const reset=document.createElement('button');reset.type='button';reset.className='calc-reset';reset.textContent='Obnovit výchozí hodnoty';
-      const resultLink=document.createElement('a');resultLink.className='calc-results-link';resultLink.href='#result-'+view.dataset.view;resultLink.textContent='Zobrazit výsledek';
+      const resultLink=document.createElement('a');resultLink.className='calc-results-link';resultLink.href='#result-'+view.dataset.view;resultLink.textContent='Zobrazit výsledek ↓';
       const result=view.querySelector('.calculator-result');result.id='result-'+view.dataset.view;
       const notice=document.createElement('p');notice.className='calc-validation';notice.setAttribute('role','status');notice.hidden=true;
       actions.append(reset,resultLink);view.querySelector('.calculator-shell').before(actions,notice);
