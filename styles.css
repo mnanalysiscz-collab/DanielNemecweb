@@ -3,7 +3,7 @@
   --muted: #4c5c67;
   --paper: #f8f6f1;
   --plaster-image: url("assets/hero-sterka.webp");
-  --hero-plaster-tone: linear-gradient(#2b26212e, #2b26212e);
+  --hero-plaster-tone: linear-gradient(#2b26213d, #2b26213d);
   --plaster-base: #c3baaa;
   --nav-surface: #c9beaf;
   --brand-height: clamp(88px, 7.7vw, 112px);
@@ -78,7 +78,7 @@ em { color: var(--accent); }
   --home-content-width: min(1600px, 100% - clamp(56px, 8vw, 150px));
 }
 .home-page .site-header {
-  --compact-surface: #bfb3a1f5;
+  --compact-surface: #b6aa98f5;
   pointer-events: none;
   background: transparent;
   border: 0;
@@ -102,7 +102,7 @@ em { color: var(--accent); }
 }
 
 .hero {
-  --accent: #63301d;
+  --accent: #572a16;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -135,7 +135,7 @@ em { color: var(--accent); }
 .hero-copy { max-width: min(55%, 610px); }
 .hero h1 { font-size: clamp(3rem, 5.1vw, 5.3rem); line-height: .99; letter-spacing: -.06em; }
 .hero h1 em { display: inline-block; }
-.hero-lead { max-width: 410px; margin: 25px 0 28px; color: #283947; font-size: clamp(1rem, 1.4vw, 1.14rem); }
+.hero-lead { max-width: 410px; margin: 25px 0 28px; color: #1f3040; font-size: clamp(1rem, 1.4vw, 1.14rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero .button-outline { background: #ded6c9df; }
 .hero .button-outline:hover { background: #e9e0d2; }
