@@ -4,6 +4,7 @@
   --paper: #f8f6f1;
   --plaster-image: url("assets/sterka-beton-relief.webp");
   --plaster-tone: linear-gradient(#2b262138, #2b262138);
+  --plaster-light-tone: linear-gradient(#f5ebdd70, #f5ebdd70);
   --plaster-dark-tone: linear-gradient(#22232bce, #22232bce);
   --plaster-base: #c3baaa;
   --brand-height: clamp(88px, 7.7vw, 112px);
@@ -152,6 +153,7 @@ em { color: var(--accent); }
     var(--plaster-tone),
     var(--plaster-base) var(--plaster-image) center / cover no-repeat;
 }
+.plaster-section--light { --plaster-tone: var(--plaster-light-tone); }
 .about { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1fr); align-items: center; gap: clamp(30px, 8vw, 122px); }
 .portrait { margin: 0; }
 .portrait img { width: 100%; aspect-ratio: 1.07; object-fit: cover; object-position: 75% 38%; border-radius: 3px; }
@@ -168,17 +170,15 @@ em { color: var(--accent); }
 .service-grid a { margin-top: auto; color: var(--accent); font-weight: 700; }
 
 .tools {
-  color: var(--white);
   background:
-    var(--plaster-dark-tone),
+    var(--plaster-light-tone),
     var(--plaster-base) var(--plaster-image) center / cover no-repeat;
 }
-.tools .section-label, .tools em { color: var(--accent-light); }
 .tools-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr); align-items: start; gap: clamp(26px, 6vw, 85px); }
-.tools-inner p:not(.section-label) { color: #d5dfe7; max-width: 41ch; }
+.tools-inner p:not(.section-label) { color: var(--muted); max-width: 41ch; }
 .tool-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.tool-links a { display: flex; align-items: center; min-height: 64px; padding: 12px 16px; border: 1px solid #ffffff40; border-radius: 4px; text-decoration: none; font-weight: 650; }
-.tool-links a:hover { background: #ffffff14; border-color: var(--accent-light); }
+.tool-links a { display: flex; align-items: center; min-height: 64px; padding: 12px 16px; border: 1px solid #66594c; border-radius: 4px; background: #f4ebdc55; text-decoration: none; font-weight: 650; }
+.tool-links a:hover { background: #f4ebdcbd; border-color: var(--accent); }
 
 .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: clamp(32px, 7vw, 96px); align-items: start; }
 .contact address { display: grid; gap: 3px; margin: 24px 0; font-style: normal; overflow-wrap: anywhere; }
@@ -204,7 +204,7 @@ em { color: var(--accent); }
   padding-block: 32px;
   border-top: 1px solid #a2998c;
   background:
-    var(--plaster-tone),
+    var(--plaster-light-tone),
     var(--plaster-base) var(--plaster-image) center 72% / cover no-repeat;
 }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 35px; }

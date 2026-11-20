@@ -6,8 +6,8 @@
   <meta name="description" content="Šest orientačních finančních kalkulaček Daniela Němce pro hypotéku, investice, životní pojištění, plán na penzi, nájem a finanční svobodu.">
   <meta name="theme-color" content="#f8f6f1">
   <title>Finanční kalkulačky | Daniel Němec</title>
-  <link rel="stylesheet" href="styles.css?v=sterka-relief-1">
-  <link rel="stylesheet" href="kalkulacky.css?v=sterka-relief-1">
+  <link rel="stylesheet" href="styles.css?v=sterka-stridani-1">
+  <link rel="stylesheet" href="kalkulacky.css?v=sterka-stridani-1">
   <script src="script.js?v=podpis-smycka-1" defer></script>
 </head>
 <body class="calculator-page">
@@ -28,19 +28,21 @@
   </header>
   <main id="top" tabindex="-1">
     <section id="kalkulacky" class="calculators section" aria-labelledby="calculators-title">
-      <a class="calculator-back" href="index.html">Zpět na hlavní stránku</a>
-      <div class="section-heading">
-        <div><span class="section-label">Finanční kalkulačky</span><h1 id="calculators-title">Šest pohledů na vaši budoucnost.</h1></div>
-        <p>Orientační výpočty s nastavitelnými předpoklady, scénáři a vysvětlením výsledku. Vše se přepočítává okamžitě přímo ve vašem prohlížeči.</p>
-      </div>
+      <div class="calculator-overview">
+        <a class="calculator-back" href="index.html">Zpět na hlavní stránku</a>
+        <div class="section-heading">
+          <div><span class="section-label">Finanční kalkulačky</span><h1 id="calculators-title">Šest pohledů na vaši budoucnost.</h1></div>
+          <p>Orientační výpočty s nastavitelnými předpoklady, scénáři a vysvětlením výsledku. Vše se přepočítává okamžitě přímo ve vašem prohlížeči.</p>
+        </div>
 
-      <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
-        <button class="calculator-tab active" id="tab-mortgage" role="tab" aria-selected="true" aria-controls="panel-mortgage" tabindex="0" type="button" data-calculator="mortgage">Hypotéka</button>
-        <button class="calculator-tab" id="tab-investment" role="tab" aria-selected="false" aria-controls="panel-investment" tabindex="-1" type="button" data-calculator="investment">Investice</button>
-        <button class="calculator-tab" id="tab-insurance" role="tab" aria-selected="false" aria-controls="panel-insurance" tabindex="-1" type="button" data-calculator="insurance">Životní pojištění</button>
-        <button class="calculator-tab" id="tab-pension" role="tab" aria-selected="false" aria-controls="panel-pension" tabindex="-1" type="button" data-calculator="pension">Penzijní plán</button>
-        <button class="calculator-tab" id="tab-rentbuy" role="tab" aria-selected="false" aria-controls="panel-rentbuy" tabindex="-1" type="button" data-calculator="rentbuy">Nájem vs. hypotéka</button>
-        <button class="calculator-tab" id="tab-freedom" role="tab" aria-selected="false" aria-controls="panel-freedom" tabindex="-1" type="button" data-calculator="freedom">Finanční svoboda</button>
+        <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
+          <button class="calculator-tab active" id="tab-mortgage" role="tab" aria-selected="true" aria-controls="panel-mortgage" tabindex="0" type="button" data-calculator="mortgage">Hypotéka</button>
+          <button class="calculator-tab" id="tab-investment" role="tab" aria-selected="false" aria-controls="panel-investment" tabindex="-1" type="button" data-calculator="investment">Investice</button>
+          <button class="calculator-tab" id="tab-insurance" role="tab" aria-selected="false" aria-controls="panel-insurance" tabindex="-1" type="button" data-calculator="insurance">Životní pojištění</button>
+          <button class="calculator-tab" id="tab-pension" role="tab" aria-selected="false" aria-controls="panel-pension" tabindex="-1" type="button" data-calculator="pension">Penzijní plán</button>
+          <button class="calculator-tab" id="tab-rentbuy" role="tab" aria-selected="false" aria-controls="panel-rentbuy" tabindex="-1" type="button" data-calculator="rentbuy">Nájem vs. hypotéka</button>
+          <button class="calculator-tab" id="tab-freedom" role="tab" aria-selected="false" aria-controls="panel-freedom" tabindex="-1" type="button" data-calculator="freedom">Finanční svoboda</button>
+        </div>
       </div>
 
       <div class="calculator-view active" id="panel-mortgage" role="tabpanel" aria-labelledby="tab-mortgage" data-view="mortgage">
