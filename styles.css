@@ -219,13 +219,13 @@ em { color: var(--accent); }
   padding: clamp(24px, 3.5vw, 56px);
   color: var(--paper);
   background:
-    linear-gradient(130deg, #142b40f5, #142b40e3),
-    var(--ink) var(--plaster-image) 23% center / cover no-repeat;
+    linear-gradient(130deg, #624235d6, #4c342bea),
+    #5c4033 var(--plaster-image) 23% center / cover no-repeat;
 }
 .service-feature h3 { max-width: 14ch; font-size: clamp(2.1rem, 3.4vw, 3.65rem); letter-spacing: -.04em; }
 .service-feature p { max-width: 41ch; margin: 18px 0 26px; color: #ede4d6; }
 .service-feature-link { gap: 14px; border-color: #ede4d6; color: var(--paper); text-align: left; }
-.service-feature-link:hover { background: #ede4d6; color: var(--ink); }
+.service-feature-link:hover { background: #ede4d6; color: #4c342b; }
 .service-feature-link:focus-visible { outline-color: var(--paper); }
 .service-list { border-top: 1px solid #65574780; }
 .service-list article { padding-block: 17px; border-bottom: 1px solid #65574780; }
