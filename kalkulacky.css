@@ -169,7 +169,7 @@ input[type=range]::-moz-range-thumb{
   --line: #ffffff40;
   --slider-accent: #df9f85;
   background:
-    linear-gradient(#142b40df, #142b40df),
+    var(--plaster-dark-tone),
     var(--plaster-base) var(--plaster-image) center top / cover no-repeat;
   color: #fff;
   min-height: 75vh;
