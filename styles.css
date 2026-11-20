@@ -193,10 +193,8 @@ em { color: var(--accent); }
 .portrait { margin: 0; }
 .portrait img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center top;
-  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  height: auto;
+  mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
 }
 .about-copy p:not(.section-label), .contact-copy > p:not(.section-label) { max-width: 52ch; color: var(--muted); }
 .about-copy a { margin-top: 12px; }
