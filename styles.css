@@ -147,6 +147,25 @@ em { color: var(--accent); }
 .hero h1 { font-size: clamp(3rem, 5.1vw, 5.3rem); line-height: .99; letter-spacing: -.06em; }
 .hero h1 em { color: #572a16; display: inline-block; }
 .hero-lead { max-width: 410px; margin: 25px 0 clamp(42px, 3.1vw, 56px); color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.14rem); }
+@media (min-width: 721px) and (min-height: 650px) {
+  .home-page .hero {
+    /* Anchor the vertical crop at the top edge of the monitor in the photo. */
+    --monitor-position: .375;
+  }
+  .home-page .hero-photo { object-position: 62% calc(100% * var(--monitor-position)); }
+  .home-page .hero-inner {
+    --hero-title-size: clamp(3rem, min(5.1vw, calc(17svh - 3.4rem)), 5.3rem);
+    --hero-monitor-top: calc(100svh * var(--monitor-position));
+    align-content: start;
+    padding-top: max(
+      calc(var(--header-height) + 18px),
+      calc(var(--hero-monitor-top) - 3.6rem - .9 * var(--hero-title-size))
+    );
+  }
+  .home-page .hero-copy { margin-block-start: 0; }
+  .home-page .hero-copy > :is(.section-label, h1, .hero-lead) { inset-block-start: 0; }
+  .home-page .hero h1 { font-size: var(--hero-title-size); }
+}
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero .button-outline { background: #ded6c9df; }
 .hero .button-outline:hover { background: #e9e0d2; }
