@@ -191,7 +191,17 @@ em { color: var(--accent); }
   gap: clamp(30px, 5vw, 80px);
 }
 .portrait { margin: 0; }
-.portrait img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 26%; border-radius: 3px; }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 26%;
+  mask-image: linear-gradient(to right, #000 90%, transparent 100%),
+              linear-gradient(to bottom, #000 79%, transparent 100%);
+  mask-composite: intersect;
+  transform: scale(1.16);
+  transform-origin: right center;
+}
 .about-copy p:not(.section-label), .contact-copy > p:not(.section-label) { max-width: 52ch; color: var(--muted); }
 .about-copy a { margin-top: 12px; }
 .services {
@@ -290,6 +300,7 @@ em { color: var(--accent); }
   .about, .tools-inner, .contact { grid-template-columns: minmax(0, 1fr); }
   .about-copy { grid-row: 1; }
   .portrait { width: min(100%, 440px); justify-self: center; }
+  .portrait img { transform: translateX(-15%); }
 }
 @media (max-width: 440px) {
   .service-grid, .form-row { grid-template-columns: minmax(0, 1fr); }
