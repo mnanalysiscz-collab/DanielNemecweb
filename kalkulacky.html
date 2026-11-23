@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f8f6f1">
   <title>Finanční kalkulačky | Daniel Němec</title>
   <link rel="stylesheet" href="styles.css?v=sluzby-na-sterce-1">
-  <link rel="stylesheet" href="kalkulacky.css?v=kalkulacky-na-sterce-1">
+  <link rel="stylesheet" href="kalkulacky.css?v=kalkulacky-kompaktni-1">
   <script src="script.js?v=podpis-smycka-1" defer></script>
 </head>
 <body class="calculator-page">
@@ -153,7 +153,7 @@
 
       const rect=canvas.getBoundingClientRect();
       const dpr=Math.min(window.devicePixelRatio||1,2);
-      const w=Math.max(Math.round(rect.width),160),h=220;
+      const w=Math.max(Math.round(rect.width),160),h=Math.max(Math.round(rect.height),180);
       canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
       const ctx=canvas.getContext('2d');
       ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);

@@ -8,7 +8,9 @@ const options = [...topicStep.querySelectorAll('.future-option')];
 let activeOption;
 
 function openTopic(option, label = option.dataset.future, value = option.dataset.message) {
+  activeOption?.classList.remove('is-selected');
   activeOption = option;
+  activeOption.classList.add('is-selected');
   selectedTopic.textContent = label;
   topicInput.value = value;
   status.textContent = '';

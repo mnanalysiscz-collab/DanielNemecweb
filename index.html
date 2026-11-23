@@ -6,7 +6,7 @@
   <meta name="description" content="Daniel Němec, osobní finanční poradenství v Sokolově. Probereme bydlení, pojištění, rezervy i dlouhodobé finanční cíle.">
   <meta name="theme-color" content="#f8f6f1">
   <title>Daniel Němec | Osobní finanční poradenství</title>
-  <link rel="stylesheet" href="styles.css?v=sluzby-na-sterce-1">
+  <link rel="stylesheet" href="styles.css?v=kontakt-na-sterce-1">
   <script src="script.js?v=scroll-cisty-1" defer></script>
 </head>
 <body class="home-page">
@@ -109,26 +109,27 @@
         <div class="contact-copy">
           <p class="section-label">Kontakt</p>
           <h2 id="contact-title">Co právě řešíte?</h2>
-          <p>Vyberte téma a nechte mi na sebe kontakt. Ozvu se vám a domluvíme se, co probereme jako první.</p>
+          <p>Ozvěte se mi kvůli pojištění, bydlení nebo financím. Domluvíme se, co probereme při prvním rozhovoru.</p>
           <address>
             <strong>Daniel Němec</strong>
             <span>Obchodní zástupce · Agentura Čechy Západ</span>
             <span>Kooperativa pojišťovna, a.s., Vienna Insurance Group</span>
             <a href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%A1dra%C5%BEn%C3%AD+562%2C+Sokolov">Nádražní 562, 356 01 Sokolov</a>
+          </address>
+          <div class="contact-direct">
             <a href="tel:+420737560445">+420 737 560 445</a>
             <a href="mailto:daniel.nemec@kooperativa.cz">daniel.nemec@kooperativa.cz</a>
-          </address>
-          <img class="office-photo" src="assets/daniel-kancelar.webp" alt="Daniel Němec v kanceláři v Sokolově" width="1600" height="1068" loading="lazy" decoding="async">
+          </div>
         </div>
         <div class="contact-journey">
           <div class="contact-step" id="futureStep">
             <h3>Vyberte téma konzultace</h3>
             <div class="future-picker" role="group" aria-label="Téma konzultace">
-              <button class="future-option" type="button" data-future="Vlastní bydlení" data-message="Hypotéka a financování bydlení">Řeším bydlení</button>
-              <button class="future-option" type="button" data-future="Finanční nezávislost" data-message="Investice a budování majetku">Chci investovat</button>
-              <button class="future-option" type="button" data-future="Jistota pro rodinu" data-message="Ochrana příjmu a rodiny">Chci chránit rodinu</button>
-              <button class="future-option" type="button" data-future="Dlouhodobý finanční plán" data-message="Komplexní finanční plán">Potřebuji finanční plán</button>
-              <button class="future-option" type="button" data-future="Chci se poradit" data-message="Obecný dotaz – chci se poradit">Chci se poradit</button>
+              <button class="future-option" type="button" data-future="Jistota pro rodinu" data-message="Ochrana příjmu a rodiny">Chci řešit pojištění <span aria-hidden="true">→</span></button>
+              <button class="future-option" type="button" data-future="Vlastní bydlení" data-message="Hypotéka a financování bydlení">Řeším bydlení <span aria-hidden="true">→</span></button>
+              <button class="future-option" type="button" data-future="Finanční nezávislost" data-message="Investice a budování majetku">Chci investovat <span aria-hidden="true">→</span></button>
+              <button class="future-option" type="button" data-future="Dlouhodobý finanční plán" data-message="Komplexní finanční plán">Potřebuji finanční plán <span aria-hidden="true">→</span></button>
+              <button class="future-option" type="button" data-future="Chci se poradit" data-message="Obecný dotaz – chci se poradit">Chci se poradit <span aria-hidden="true">→</span></button>
             </div>
             <noscript><p>Formulář vyžaduje JavaScript. Můžete mi napsat přímo na <a href="mailto:daniel.nemec@kooperativa.cz">daniel.nemec@kooperativa.cz</a>.</p></noscript>
           </div>
@@ -148,14 +149,18 @@
                 <label>Telefon<input type="tel" name="telefon" autocomplete="tel" required></label>
               </div>
               <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
-              <label>Co aktuálně řešíte? (volitelné)<textarea name="zprava" rows="4" placeholder="Stačí pár vět."></textarea></label>
+              <label><span>Co aktuálně řešíte? <span class="contact-optional">(volitelné)</span></span><textarea name="zprava" rows="4" placeholder="Stačí pár vět."></textarea></label>
               <label class="consent"><input type="checkbox" name="souhlas" value="ano" required><span>Souhlasím se zpracováním údajů za účelem zpětného kontaktování.</span></label>
-              <button class="button button-primary" type="submit">Odeslat zprávu</button>
+              <button class="button button-primary" type="submit">Odeslat zprávu <span aria-hidden="true">→</span></button>
+              <p class="contact-note">Zpráva přijde na daniel.nemec@kooperativa.cz. První rozhovor je nezávazný.</p>
               <p class="contact-note">Odeslání zajišťuje <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Před odesláním můžete být vyzváni k ověření proti spamu.</p>
               <p class="form-status" id="formStatus" role="status"></p>
             </form>
           </div>
         </div>
+        <figure class="contact-photo">
+          <img class="office-photo" src="assets/daniel-kancelar.webp" alt="Daniel Němec v kanceláři v Sokolově" width="1600" height="1068" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
   </main>
@@ -167,6 +172,6 @@
       <p class="footer-legal">© <span id="year">2026</span> Daniel Němec. Výsledky kalkulaček jsou orientační.</p>
     </div>
   </footer>
-  <script src="contact.js" defer></script>
+  <script src="contact.js?v=kontakt-na-sterce-1" defer></script>
 </body>
 </html>
