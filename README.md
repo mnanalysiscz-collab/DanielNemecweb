@@ -21,4 +21,4 @@ node tests/bank-update.test.cjs
 
 ## Sazby hypoték
 
-Workflow **Daily mortgage rates** kontroluje zveřejněné výchozí sazby přímo u bank kolem 01:00 pražského času. Aktualizaci lze spustit i ručně v Actions. Údaj, který se při posledním pokusu nepodařilo potvrdit nebo jehož platnost vypršela, se návštěvníkům nezobrazí jako aktuální sazba. Výchozí sazby neslouží jako individuální nabídky.
+Workflow **Daily mortgage rates** kontroluje zveřejněné výchozí sazby přímo u bank kolem 01:00 pražského času. Aktualizaci lze spustit i ručně v Actions. Údaj, který se při posledním pokusu nepodařilo potvrdit nebo jehož platnost vypršela, se návštěvníkům nezobrazí jako aktuální sazba. Částečná nedostupnost zdrojů se v Actions hlásí jako varování. Pokud se nepodaří ověřit žádnou banku, běh končí chybou. Výchozí sazby neslouží jako individuální nabídky.

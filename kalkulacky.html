@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f8f6f1">
   <title>Finanční kalkulačky | Daniel Němec</title>
   <link rel="stylesheet" href="styles.css?v=sluzby-na-sterce-1">
-  <link rel="stylesheet" href="kalkulacky.css?v=kalkulacky-kompaktni-1">
+  <link rel="stylesheet" href="kalkulacky.css?v=kalkulacky-dva-bloky-1">
   <script src="script.js?v=podpis-smycka-1" defer></script>
 </head>
 <body class="calculator-page">
@@ -32,7 +32,7 @@
         <a class="calculator-back" href="index.html">Zpět na hlavní stránku</a>
         <div class="section-heading">
           <h1 id="calculators-title">Finanční <em>kalkulačky</em></h1>
-          <p>Vyberte téma a upravte předpoklady podle své situace. Orientační výsledek se přepočítá hned.</p>
+          <p>Vyberte téma a upravte vstupy. Orientační výsledek se přepočítá hned.</p>
         </div>
 
         <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
@@ -131,7 +131,7 @@
     </div>
   </footer>
   <script src="bank-rates-data.js"></script>
-  <script src="bank-comparison.js"></script>
+  <script src="bank-comparison.js?v=kontrola-sazeb-1"></script>
   <script>
     const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}),decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
     const clamp=(value,min,max)=>Math.min(Math.max(value,min),max),raw=id=>{const el=document.getElementById(id),value=Number(el?.value);if(!Number.isFinite(value))return 0;const min=el?.min!==''?Number(el.min):-Infinity,max=el?.max!==''?Number(el.max):Infinity;return clamp(value,min,max)},get=id=>Math.max(raw(id),0),set=(id,value)=>{const el=document.getElementById(id);if(el&&el.textContent!==String(value))el.textContent=value},html=(id,value)=>{const el=document.getElementById(id);if(el&&el.innerHTML!==value)el.innerHTML=value},money=v=>Number.isFinite(v)?currency.format(v):'—',pct=v=>Number.isFinite(v)?decimal.format(v)+' %':'—';

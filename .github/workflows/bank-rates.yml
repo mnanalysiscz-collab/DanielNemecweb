@@ -55,8 +55,14 @@ jobs:
           fi
           # GITHUB_TOKEN commits do not trigger a Pages build automatically.
           gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
-      - name: Flag sources needing attention
+      - name: Report unavailable bank sources
         if: steps.rates.outputs.failed != '' && steps.rates.outputs.failed != '0'
+        env:
+          VERIFIED_BANKS: ${{ steps.rates.outputs.verified }}
+          UNAVAILABLE_BANKS: ${{ steps.rates.outputs.failed }}
         run: |
-          echo 'One or more bank sources could not be verified. Their rates were hidden.'
-          exit 1
+          if [ "$VERIFIED_BANKS" -eq 0 ]; then
+            echo '::error title=Bank rate verification failed::No bank source was verified. Unverified rates were hidden.'
+            exit 1
+          fi
+          echo "::warning title=Bank source unavailable::$UNAVAILABLE_BANKS source(s) could not be verified. Rates were published for $VERIFIED_BANKS verified source(s)."
