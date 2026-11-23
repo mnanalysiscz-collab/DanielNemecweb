@@ -27,12 +27,22 @@ async function update(data,fetcher=fetch,now=new Date()){
   const checkedOn=pragueDate(now),expiry=new Date(checkedOn+'T00:00:00Z');expiry.setUTCDate(expiry.getUTCDate()+3);
   const results=await Promise.allSettled(data.banks.map(async bank=>{
     const response=await fetcher(bank.source,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'FinanceOndrejKrapka-rate-check/1.0'}});
-    if(!response.ok)throw Error('HTTP '+response.status);
+    if(!response.ok)throw Object.assign(Error('HTTP '+response.status),{httpStatus:response.status});
     const offer=parseOffer(bank.id,await response.text());
-    return {...bank,...offer,checkedOn,checkedAt:now.toISOString(),expiresOn:expiry.toISOString().slice(0,10),status:'verified',lastAttemptAt:now.toISOString()};
+    const {verifiedManually,...previous}=bank;
+    return {...previous,...offer,checkedOn,checkedAt:now.toISOString(),expiresOn:expiry.toISOString().slice(0,10),status:'verified',lastAttemptAt:now.toISOString()};
   }));
   let failed=0;
-  const banks=results.map((r,i)=>{if(r.status==='fulfilled')return r.value;failed++;console.error(data.banks[i].id+': '+r.reason.message);return {...data.banks[i],status:'unavailable',lastAttemptAt:now.toISOString()};});
+  const banks=results.map((result,index)=>{
+    if(result.status==='fulfilled')return result.value;
+    failed++;
+    const bank=data.banks[index];
+    console.error(bank.id+': '+result.reason.message);
+    // A recent manual check of the official offer still expires on its original date.
+    const manualStillCurrent=bank.id==='moneta'&&bank.status==='verified'&&bank.verifiedManually===true&&
+      result.reason.httpStatus===403&&bank.checkedOn<=checkedOn&&checkedOn<bank.expiresOn;
+    return {...bank,status:manualStillCurrent?'verified':'unavailable',lastAttemptAt:now.toISOString()};
+  });
   return {data:{...data,automatic:true,banks},failed};
 }
 async function main(){
@@ -47,7 +57,7 @@ async function main(){
   const verified=data.banks.length-result.failed;
   console.log('Verified '+verified+'/'+data.banks.length+' banks.');
   if(process.env.GITHUB_OUTPUT)fs.appendFileSync(process.env.GITHUB_OUTPUT,'failed='+result.failed+'\nverified='+verified+'\n');
-  if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'Verified '+(data.banks.length-result.failed)+'/'+data.banks.length+' bank sources. Failed banks are hidden until verification succeeds.\n');
+  if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'Verified '+(data.banks.length-result.failed)+'/'+data.banks.length+' bank sources. Unverified rates are hidden until verification succeeds.\n');
 }
 module.exports={parseRate,textFromHtml,scheduleMatches,update};
 if(require.main===module)main().catch(e=>{console.error(e.message);process.exitCode=1;});

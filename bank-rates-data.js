@@ -10,13 +10,14 @@ window.mortgageBankData = {
       "rate": 4.99,
       "minLoanExclusive": 1000000,
       "maxLtv": 80,
-      "conditions": "Fixace 3 roky, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
+      "conditions": "Fixace 1 rok, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
-      "checkedOn": "2026-11-03",
-      "checkedAt": "2026-11-03T05:35:48.267Z",
-      "expiresOn": "2026-11-06",
-      "status": "unavailable",
-      "lastAttemptAt": "2026-11-23T11:12:14.639Z"
+      "checkedOn": "2026-11-23",
+      "checkedAt": "2026-11-23T11:20:57.986Z",
+      "expiresOn": "2026-11-26",
+      "status": "verified",
+      "lastAttemptAt": "2026-11-23T11:12:14.639Z",
+      "verifiedManually": true
     },
     {
       "id": "csas",

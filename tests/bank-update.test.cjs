@@ -30,5 +30,23 @@ assert.equal(blocked.failed,1);
 assert.equal(blocked.data.banks[0].status,'unavailable');
 assert.equal(blocked.data.banks[0].checkedOn,updatedMoneta.checkedOn);
 assert.equal(blocked.data.banks[1].status,'verified');
-console.log('PASS parsers, changed terms, script exclusion, DST scheduling and partial failure');
+const manualMoneta={...updatedMoneta,rate:4.99,status:'verified',verifiedManually:true,checkedOn:'2026-11-23',
+  checkedAt:'2026-11-23T11:00:00Z',expiresOn:'2026-11-26'};
+const rejectAccess=async()=>({ok:false,status:403});
+const stillCurrent=await update({banks:[manualMoneta]},rejectAccess,new Date('2026-11-24T01:00:00Z'));
+assert.equal(stillCurrent.failed,1);
+assert.equal(stillCurrent.data.banks[0].status,'verified');
+assert.equal(stillCurrent.data.banks[0].checkedAt,manualMoneta.checkedAt);
+assert.equal(stillCurrent.data.banks[0].expiresOn,manualMoneta.expiresOn);
+const expiredManual=await update({banks:[manualMoneta]},rejectAccess,new Date('2026-11-25T23:00:00Z'));
+assert.equal(expiredManual.data.banks[0].status,'unavailable');
+const changedTerms=await update({banks:[manualMoneta]},async()=>({ok:true,text:async()=>samples.moneta.replace('80 %','70 %')}),
+  new Date('2026-11-24T01:00:00Z'));
+assert.equal(changedTerms.data.banks[0].status,'unavailable');
+const automaticAgain=await update({banks:[manualMoneta]},async()=>({ok:true,text:async()=>samples.moneta}),
+  new Date('2026-11-24T01:00:00Z'));
+assert.equal(automaticAgain.failed,0);
+assert.equal(automaticAgain.data.banks[0].verifiedManually,undefined);
+assert.match(automaticAgain.data.banks[0].conditions,/Fixace 3 roky/);
+console.log('PASS parsers, changed terms, DST scheduling, partial failure and expiry of manual verification');
 })().catch(e=>{console.error(e);process.exitCode=1});

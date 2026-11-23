@@ -39,7 +39,7 @@
       card.append(el('span','bank-rate-label','Zveřejněná sazba od'),el('strong','bank-rate',bankExpired?'Čeká na ověření':percent(bank.rate)+' % p.a.'));
       const details=el('details','bank-details');details.append(el('summary','','Podmínky sazby a zdroj'),el('p','bank-conditions',bankExpired?'Aktuální podmínky ověřte přímo u banky.':bank.conditions));
       const verified=bank.checkedAt?new Intl.DateTimeFormat('cs-CZ',{timeZone:'Europe/Prague',dateStyle:'short',timeStyle:'short'}).format(new Date(bank.checkedAt)):(bank.checkedOn||data.checkedOn).split('-').reverse().join('. ');
-      card.append(el('p','bank-source-note','Poslední ověření: '+verified+(bankExpired?' · Čeká na nové ověření':'')));
+      card.append(el('p','bank-source-note',(bank.verifiedManually?'Ručně ověřeno: ':'Poslední ověření: ')+verified+(bankExpired?' · Čeká na nové ověření':'')));
       const payment=el('div','bank-payment');payment.append(el('span','','Modelová měsíční splátka'),el('strong','',ready?money(annuity(input.price-input.own,bank.rate/1200,input.years*12)):'—'));card.append(payment);
       if(state==='ltv'||state==='amount')card.append(el('p','bank-unavailable',state==='ltv'?'Tato sazba je určena pro LTV do '+bank.maxLtv+' %.':'Tato sazba vyžaduje úvěr nad '+money(bank.minLoanExclusive)+'.'));
       const ask=el('a','button button-primary','Poptat možnosti →');
