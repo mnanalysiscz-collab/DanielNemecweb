@@ -8,16 +8,16 @@ window.mortgageBankData = {
       "name": "MONETA Money Bank",
       "mark": "M",
       "rate": 4.99,
-      "minLoanExclusive": 1000000,
+      "minLoanExclusive": null,
       "maxLtv": 80,
-      "conditions": "Fixace 1 rok, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
+      "conditions": "Ceníková sazba od, fixace 3 roky, LTV do 80 %. Zahrnuje slevu za aktivní účet a pojištění schopnosti splácet. Modelová splátka je bez pojistného.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
       "checkedOn": "2026-11-23",
-      "checkedAt": "2026-11-23T11:20:57.986Z",
-      "expiresOn": "2026-11-26",
+      "checkedAt": "2026-11-23T11:43:32.277Z",
+      "expiresOn": "2026-12-01",
       "status": "verified",
-      "lastAttemptAt": "2026-11-23T11:22:22.639Z",
-      "verifiedManually": true
+      "lastAttemptAt": "2026-11-23T11:43:32.277Z",
+      "rateSource": "tomastik-index"
     },
     {
       "id": "csas",
@@ -27,10 +27,10 @@ window.mortgageBankData = {
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
       "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
       "checkedOn": "2026-11-23",
-      "checkedAt": "2026-11-23T11:22:22.639Z",
+      "checkedAt": "2026-11-23T11:43:32.277Z",
       "expiresOn": "2026-11-26",
       "status": "verified",
-      "lastAttemptAt": "2026-11-23T11:22:22.639Z"
+      "lastAttemptAt": "2026-11-23T11:43:32.277Z"
     },
     {
       "id": "kb",
@@ -40,10 +40,10 @@ window.mortgageBankData = {
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
       "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
       "checkedOn": "2026-11-23",
-      "checkedAt": "2026-11-23T11:22:22.639Z",
+      "checkedAt": "2026-11-23T11:43:32.277Z",
       "expiresOn": "2026-11-26",
       "status": "verified",
-      "lastAttemptAt": "2026-11-23T11:22:22.639Z"
+      "lastAttemptAt": "2026-11-23T11:43:32.277Z"
     }
   ],
   "automatic": true
