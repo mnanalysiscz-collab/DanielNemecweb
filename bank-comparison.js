@@ -25,7 +25,7 @@
     const key=JSON.stringify([input,today]);if(key===previous)return;previous=key;
     root.replaceChildren();
     const expired=data.banks.every(bank=>bank.status==='unavailable'||today>=(bank.expiresOn||data.expiresOn));
-    document.getElementById('bank-source-note').textContent=data.automatic?'Automatická kontrola denně kolem 1:00 (Europe/Prague). Zdroj: oficiální stránky bank. Čas posledního ověření je uveden u každé banky.':'Ručně ověřeno: '+data.checkedOn.split('-').reverse().join('. ')+' · Zdroje: oficiální stránky jednotlivých bank.';
+    document.getElementById('bank-source-note').textContent=data.automatic?'Automatická kontrola denně kolem 1:00 (Europe/Prague). Zdroje a data ověření najdete u jednotlivých bank.':'Ručně ověřeno: '+data.checkedOn.split('-').reverse().join('. ')+' · Zdroje: oficiální stránky jednotlivých bank.';
     const status=document.getElementById('bank-status');
     status.textContent=!input.valid?'Nejdřív opravte údaje v kalkulačce.':expired?'Sazby čekají na nové ověření. Aktuální možnosti vám zjistím osobně.':input.price<=input.own?'Vlastní prostředky pokrývají cenu nemovitosti; hypotéka není potřeba.':'Model pro úvěr '+money(input.price-input.own)+' na '+input.years+' let. Zveřejněná sazba nemusí být pro vaše parametry dostupná.';
     for(const bank of [...data.banks].sort((a,b)=>a.rate-b.rate)){
@@ -38,14 +38,26 @@
       logoBox.append(logo);heading.append(logoBox,el('h4','',bank.name));card.append(heading);
       card.append(el('span','bank-rate-label','Zveřejněná sazba od'),el('strong','bank-rate',bankExpired?'Čeká na ověření':percent(bank.rate)+' % p.a.'));
       const details=el('details','bank-details');details.append(el('summary','','Podmínky sazby a zdroj'),el('p','bank-conditions',bankExpired?'Aktuální podmínky ověřte přímo u banky.':bank.conditions));
+      const fromIndex=bank.id==='moneta'&&bank.rateSource==='tomastik-index';
+      const indexDate=fromIndex?bank.checkedOn.split('-').reverse().map(Number).join('. '):'';
       const verified=bank.checkedAt?new Intl.DateTimeFormat('cs-CZ',{timeZone:'Europe/Prague',dateStyle:'short',timeStyle:'short'}).format(new Date(bank.checkedAt)):(bank.checkedOn||data.checkedOn).split('-').reverse().join('. ');
-      card.append(el('p','bank-source-note',(bank.verifiedManually?'Ručně ověřeno: ':'Poslední ověření: ')+verified+(bankExpired?' · Čeká na nové ověření':'')));
+      const verification=fromIndex?'Stav indexu k '+indexDate:(bank.verifiedManually?'Ručně ověřeno: ':'Poslední ověření: ')+verified;
+      card.append(el('p','bank-source-note',verification+(bankExpired?' · Čeká na nové ověření':'')));
       const payment=el('div','bank-payment');payment.append(el('span','','Modelová měsíční splátka'),el('strong','',ready?money(annuity(input.price-input.own,bank.rate/1200,input.years*12)):'—'));card.append(payment);
       if(state==='ltv'||state==='amount')card.append(el('p','bank-unavailable',state==='ltv'?'Tato sazba je určena pro LTV do '+bank.maxLtv+' %.':'Tato sazba vyžaduje úvěr nad '+money(bank.minLoanExclusive)+'.'));
       const ask=el('a','button button-primary','Poptat možnosti →');
       // Only the bank identifier travels in the link; household amounts stay on this page.
       ask.href='index.html?banka='+encodeURIComponent(bank.id)+'#kontakt';ask.setAttribute('aria-label','Poptat možnosti – '+bank.name);card.append(ask);
-      const source=el('a','bank-source','Zdroj a podmínky banky ↗');source.href=bank.source;source.target='_blank';source.rel='noopener noreferrer';details.append(source);card.append(details);root.append(card);
+      const source=el('a','bank-source',fromIndex?'Index hypoték Finance Tomaštík ↗':'Zdroj a podmínky banky ↗');
+      source.href=fromIndex?'https://financetomastik.cz/index-hypotek/#banky':bank.source;
+      source.target='_blank';source.rel='noopener noreferrer';details.append(source);
+      if(fromIndex){
+        const rateSheet=source.cloneNode();
+        rateSheet.href='https://www.moneta.cz/documents/20143/11740791/mmb-ul-hypoteky.pdf';
+        rateSheet.textContent='Úrokový lístek MONETY ↗';
+        details.append(document.createElement('br'),rateSheet);
+      }
+      card.append(details);root.append(card);
     }
   };
   // Revalidate the daily snapshot even when the bundled script is in browser cache.

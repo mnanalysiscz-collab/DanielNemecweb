@@ -130,8 +130,8 @@
       <p class="footer-legal">© <span id="year">2026</span> Daniel Němec. Výsledky kalkulaček jsou orientační.</p>
     </div>
   </footer>
-  <script src="bank-rates-data.js"></script>
-  <script src="bank-comparison.js?v=kontrola-sazeb-2"></script>
+  <script src="bank-rates-data.js?v=moneta-index-1"></script>
+  <script src="bank-comparison.js?v=moneta-index-1"></script>
   <script>
     const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}),decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
     const clamp=(value,min,max)=>Math.min(Math.max(value,min),max),raw=id=>{const el=document.getElementById(id),value=Number(el?.value);if(!Number.isFinite(value))return 0;const min=el?.min!==''?Number(el.min):-Infinity,max=el?.max!==''?Number(el.max):Infinity;return clamp(value,min,max)},get=id=>Math.max(raw(id),0),set=(id,value)=>{const el=document.getElementById(id);if(el&&el.textContent!==String(value))el.textContent=value},html=(id,value)=>{const el=document.getElementById(id);if(el&&el.innerHTML!==value)el.innerHTML=value},money=v=>Number.isFinite(v)?currency.format(v):'—',pct=v=>Number.isFinite(v)?decimal.format(v)+' %':'—';
