@@ -337,6 +337,20 @@ em { color: var(--accent); }
 .contact-note { margin: 9px 0 0; }
 .contact-note a, .form-status { color: var(--accent); }
 .form-status:empty { display: none; }
+.contact-confirm {
+  width: min(26rem, calc(100% - 2rem));
+  padding: clamp(20px, 4vw, 30px);
+  border: 1px solid #746451;
+  border-radius: 4px;
+  color: var(--ink);
+}
+.contact-confirm::backdrop { background: #142b4080; }
+.contact-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
 .site-footer {
   padding-block: 32px;
   border-top: 1px solid #a2998c;

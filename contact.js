@@ -1,6 +1,7 @@
 const topicStep = document.getElementById('futureStep');
 const formStep = document.getElementById('formStep');
 const form = document.getElementById('contactForm');
+const confirmation = document.getElementById('contactConfirm');
 const status = document.getElementById('formStatus');
 const selectedTopic = document.getElementById('selectedFuture');
 const topicInput = document.getElementById('futureInput');
@@ -67,14 +68,22 @@ for (const input of [phoneInput, emailInput]) {
 }
 
 form.addEventListener('submit', (event) => {
+  event.preventDefault();
   const hasContact = Boolean(phoneInput.value.trim() || emailInput.value.trim());
   phoneInput.setCustomValidity(hasContact ? '' : contactRequired);
   if (!form.checkValidity()) {
-    event.preventDefault();
     status.textContent = hasContact ? 'Prosím zkontrolujte označená pole a potvrďte souhlas.' : contactRequired;
     form.reportValidity();
     return;
   }
+  status.textContent = '';
+  confirmation.returnValue = '';
+  confirmation.showModal();
+});
+
+confirmation.addEventListener('close', () => {
+  if (confirmation.returnValue !== 'yes') return;
   document.getElementById('contactSubject').value = 'Nezávazná konzultace – ' + selectedTopic.textContent;
-  status.textContent = 'Pokračujete k bezpečnostnímu ověření a odeslání zprávy.';
+  status.textContent = 'Odesílám zprávu…';
+  form.submit();
 });

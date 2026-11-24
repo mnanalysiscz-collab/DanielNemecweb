@@ -35,7 +35,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=konzultace-pojisteni-1">
+  <link rel="stylesheet" href="styles.css?v=potvrzeni-poptavky-1">
   <script src="script.js?v=scroll-cisty-1" defer></script>
 </head>
 <body class="home-page">
@@ -186,10 +186,17 @@
               <label><span>Co aktuálně řešíte? <span class="contact-optional">(volitelné)</span></span><textarea name="zprava" rows="4" placeholder="Stačí pár vět."></textarea></label>
               <label class="consent"><input type="checkbox" name="souhlas" value="ano" required><span>Souhlasím se zpracováním údajů za účelem zpětného kontaktování.</span></label>
               <button class="button button-primary" type="submit">Odeslat zprávu <span aria-hidden="true">→</span></button>
-              <p class="contact-note">Zpráva přijde na dany.nemec@seznam.cz. První rozhovor je nezávazný.</p>
+              <p class="contact-note">První rozhovor je nezávazný.</p>
               <p class="contact-note">Odeslání zajišťuje <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Před odesláním můžete být vyzváni k ověření proti spamu.</p>
               <p class="form-status" id="formStatus" role="status"></p>
             </form>
+            <dialog class="contact-confirm plaster-section plaster-section--light" id="contactConfirm" aria-labelledby="contact-confirm-title">
+              <h3 id="contact-confirm-title">Opravdu chcete odeslat zprávu?</h3>
+              <form method="dialog" class="contact-confirm-actions">
+                <button class="button button-outline" value="no" autofocus>Ne</button>
+                <button class="button button-primary" value="yes">Ano</button>
+              </form>
+            </dialog>
           </div>
         </div>
         <figure class="contact-photo">
@@ -206,6 +213,6 @@
       <p class="footer-legal">© <span id="year">2026</span> Daniel Němec. Výsledky kalkulaček jsou orientační.</p>
     </div>
   </footer>
-  <script src="contact.js?v=telefon-nebo-email-1" defer></script>
+  <script src="contact.js?v=potvrzeni-poptavky-1" defer></script>
 </body>
 </html>
