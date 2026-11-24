@@ -177,11 +177,12 @@
                 <div><h3>Nechte mi na sebe kontakt</h3><p id="selectedFuture"></p></div>
                 <button class="text-link" id="changeFuture" type="button">Změnit téma</button>
               </div>
+              <label>Jméno a příjmení<input type="text" name="jmeno" autocomplete="name" required></label>
+              <p class="contact-note" id="contact-method-note">Pro zpětný kontakt stačí vyplnit telefon nebo e-mail.</p>
               <div class="form-row">
-                <label>Jméno a příjmení<input type="text" name="jmeno" autocomplete="name" required></label>
-                <label>Telefon<input type="tel" name="telefon" autocomplete="tel" required></label>
+                <label>Telefon<input type="tel" name="telefon" autocomplete="tel" aria-describedby="contact-method-note"></label>
+                <label>E-mail<input type="email" name="email" autocomplete="email" aria-describedby="contact-method-note"></label>
               </div>
-              <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
               <label><span>Co aktuálně řešíte? <span class="contact-optional">(volitelné)</span></span><textarea name="zprava" rows="4" placeholder="Stačí pár vět."></textarea></label>
               <label class="consent"><input type="checkbox" name="souhlas" value="ano" required><span>Souhlasím se zpracováním údajů za účelem zpětného kontaktování.</span></label>
               <button class="button button-primary" type="submit">Odeslat zprávu <span aria-hidden="true">→</span></button>
@@ -205,6 +206,6 @@
       <p class="footer-legal">© <span id="year">2026</span> Daniel Němec. Výsledky kalkulaček jsou orientační.</p>
     </div>
   </footer>
-  <script src="contact.js?v=konzultace-pojisteni-1" defer></script>
+  <script src="contact.js?v=telefon-nebo-email-1" defer></script>
 </body>
 </html>

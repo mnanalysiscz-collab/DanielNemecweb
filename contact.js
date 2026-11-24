@@ -55,10 +55,23 @@ document.getElementById('changeFuture').addEventListener('click', () => {
   activeOption.focus();
 });
 
+const phoneInput = form.elements.telefon;
+const emailInput = form.elements.email;
+const contactRequired = 'Vyplňte telefon nebo e-mail.';
+
+for (const input of [phoneInput, emailInput]) {
+  input.addEventListener('input', () => {
+    phoneInput.setCustomValidity('');
+    if (status.textContent === contactRequired) status.textContent = '';
+  });
+}
+
 form.addEventListener('submit', (event) => {
+  const hasContact = Boolean(phoneInput.value.trim() || emailInput.value.trim());
+  phoneInput.setCustomValidity(hasContact ? '' : contactRequired);
   if (!form.checkValidity()) {
     event.preventDefault();
-    status.textContent = 'Prosím doplňte povinné údaje a potvrďte souhlas.';
+    status.textContent = hasContact ? 'Prosím zkontrolujte označená pole a potvrďte souhlas.' : contactRequired;
     form.reportValidity();
     return;
   }
