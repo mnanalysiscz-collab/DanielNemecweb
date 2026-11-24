@@ -27,6 +27,7 @@ const contactTopics = {
   mortgage: ['Vlastní bydlení', 'Hypotéka a financování bydlení'],
   investment: ['Finanční nezávislost', 'Investice a budování majetku'],
   insurance: ['Jistota pro rodinu', 'Ochrana příjmu a rodiny'],
+  'insurance-review': ['Jistota pro rodinu', 'Kontrola stávajícího pojištění'],
   pension: ['Dlouhodobý finanční plán', 'Příprava na penzi'],
   rentbuy: ['Vlastní bydlení', 'Nájem nebo vlastní bydlení'],
   freedom: ['Dlouhodobý finanční plán', 'Plán finanční svobody'],
