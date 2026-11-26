@@ -338,19 +338,21 @@ em { color: var(--accent); }
 .contact-note a, .form-status { color: var(--accent); }
 .form-status:empty { display: none; }
 .contact-confirm {
-  width: min(26rem, calc(100% - 2rem));
-  padding: clamp(20px, 4vw, 30px);
+  width: min(22rem, calc(100% - 2rem));
+  padding: 18px;
   border: 1px solid #746451;
   border-radius: 4px;
   color: var(--ink);
 }
+.contact-confirm h3 { font-size: 1.25rem; line-height: 1.2; }
 .contact-confirm::backdrop { background: #142b4080; }
 .contact-confirm-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 14px;
 }
+.contact-confirm-actions .button { min-width: 52px; min-height: 42px; padding: 6px 12px; }
 .site-footer {
   padding-block: 32px;
   border-top: 1px solid #a2998c;

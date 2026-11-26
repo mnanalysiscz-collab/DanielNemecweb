@@ -84,6 +84,5 @@ form.addEventListener('submit', (event) => {
 confirmation.addEventListener('close', () => {
   if (confirmation.returnValue !== 'yes') return;
   document.getElementById('contactSubject').value = 'Nezávazná konzultace – ' + selectedTopic.textContent;
-  status.textContent = 'Odesílám zprávu…';
   form.submit();
 });
