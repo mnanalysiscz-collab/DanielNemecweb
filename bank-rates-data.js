@@ -13,10 +13,10 @@ window.mortgageBankData = {
       "conditions": "Ceníková sazba od, fixace 3 roky, LTV do 80 %. Zahrnuje slevu za aktivní účet a pojištění schopnosti splácet. Modelová splátka je bez pojistného.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
       "checkedOn": "2026-11-23",
-      "checkedAt": "2026-11-26T05:57:38.842Z",
+      "checkedAt": "2026-11-27T05:51:53.810Z",
       "expiresOn": "2026-12-01",
       "status": "verified",
-      "lastAttemptAt": "2026-11-26T05:57:38.842Z",
+      "lastAttemptAt": "2026-11-27T05:51:53.810Z",
       "rateSource": "tomastik-index"
     },
     {
@@ -26,11 +26,11 @@ window.mortgageBankData = {
       "rate": 5.49,
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
       "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
-      "checkedOn": "2026-11-26",
-      "checkedAt": "2026-11-26T05:57:38.842Z",
-      "expiresOn": "2026-11-29",
+      "checkedOn": "2026-11-27",
+      "checkedAt": "2026-11-27T05:51:53.810Z",
+      "expiresOn": "2026-11-30",
       "status": "verified",
-      "lastAttemptAt": "2026-11-26T05:57:38.842Z"
+      "lastAttemptAt": "2026-11-27T05:51:53.810Z"
     },
     {
       "id": "kb",
@@ -39,11 +39,11 @@ window.mortgageBankData = {
       "rate": 5.69,
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
       "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
-      "checkedOn": "2026-11-26",
-      "checkedAt": "2026-11-26T05:57:38.842Z",
-      "expiresOn": "2026-11-29",
+      "checkedOn": "2026-11-27",
+      "checkedAt": "2026-11-27T05:51:53.810Z",
+      "expiresOn": "2026-11-30",
       "status": "verified",
-      "lastAttemptAt": "2026-11-26T05:57:38.842Z"
+      "lastAttemptAt": "2026-11-27T05:51:53.810Z"
     }
   ],
   "automatic": true
