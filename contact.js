@@ -6,6 +6,8 @@ const status = document.getElementById('formStatus');
 const selectedTopic = document.getElementById('selectedFuture');
 const topicInput = document.getElementById('futureInput');
 const options = [...topicStep.querySelectorAll('.future-option')];
+const generalOption = options.find((option) => option.dataset.future === 'Chci se poradit');
+const directContact = document.querySelector('[data-open-contact]');
 let activeOption;
 
 function openTopic(option, label = option.dataset.future, value = option.dataset.message) {
@@ -49,6 +51,18 @@ if (Object.hasOwn(banks, bankKey)) {
   const search = params.size ? '?' + params.toString() : '';
   history.replaceState(null, '', location.pathname + search + location.hash);
 }
+
+function openGeneralForm() {
+  if (formStep.hidden) openTopic(generalOption);
+}
+
+function openContactFromHash() {
+  if (location.hash === directContact.hash) openGeneralForm();
+}
+
+directContact.addEventListener('click', openGeneralForm);
+window.addEventListener('hashchange', openContactFromHash);
+openContactFromHash();
 
 document.getElementById('changeFuture').addEventListener('click', () => {
   topicStep.hidden = false;

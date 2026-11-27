@@ -1,12 +1,14 @@
 const menu = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.main-nav');
 const header = document.querySelector('.site-header');
-const hero = document.querySelector('.home-page .hero');
+const heroActions = document.querySelector('.home-page .hero-actions');
 
 function updateHeader() {
-  header.classList.toggle('is-compact', window.scrollY > 42);
-  if (hero) {
-    header.classList.toggle('is-past-hero', hero.getBoundingClientRect().bottom <= 0);
+  const compact = window.scrollY > 42;
+  header.classList.toggle('is-compact', compact);
+  if (heroActions) {
+    const actionsTop = heroActions.getBoundingClientRect().top;
+    header.classList.toggle('has-plaster-backdrop', compact && actionsTop <= header.offsetHeight + 32);
   }
 }
 
